@@ -122,7 +122,66 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 );
               }).toList(),
-            )
+            ),
+
+            Expanded(
+              child: Container(
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        child: Card(
+                          color: Colors.lightBlue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          elevation: 1.0,
+                          child: Stack(
+                            children: [
+                              Center(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(25),
+                                  child: Image.network(
+                                    'https://media.istockphoto.com/photos/breaking-news-world-news-with-map-backgorund-picture-id1182477852?k=20&m=1182477852&s=612x612&w=0&h=I3wdSzT_5h1y9dHq_YpZ9AqdIKg8epthr8Guva8FkPA=',
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                // top: 0,
+                                left: 5,
+                                right: 0,
+                                bottom: 0,
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Colors.black12.withOpacity(0),
+                                        Colors.black87
+                                      ],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'News Headline',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ),
           ],
         ),
       ),
@@ -137,3 +196,4 @@ class _HomeScreenState extends State<HomeScreen> {
     Colors.orange,
   ];
 }
+// Image(image: AssetImage('images/news.png'))
